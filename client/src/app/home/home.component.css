@@ -1,0 +1,138 @@
+/* banner style */
+.banner_w3lspvt {
+    position: relative;
+    z-index: 1;
+}
+
+.banner-top {
+    background: url(/assets/images/2.jpg) no-repeat bottom;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+}
+
+.banner-top1 {
+    background: url(/assets/images/p1.jpg) no-repeat bottom;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+}
+
+
+
+.w3layouts-banner-info {
+    padding-top: 17em;
+}
+
+.w3layouts-banner-info h3 {
+    font-size: 3.5em;
+    text-shadow: 3px 4px 6px rgba(45, 45, 45, 0.15);
+    font-weight: 600;
+}
+
+.w3layouts-banner-info p {
+    font-size: 15px;
+    max-width: 650px;
+}
+
+.w3layouts-banner-info i {
+    vertical-align: middle;
+}
+
+.banner-top,
+.banner-top1{
+    min-height: 800px;
+}
+
+.button-style {
+    padding: 12px 25px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #FF5722;
+    background: #FF5722;
+    display: inline-block;
+}
+
+a.button-style:hover {
+    color: #fff;
+    -webkit-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    transform: translateY(10px);
+}
+
+/* banner move icon */
+.icon-w3 {
+    position: absolute;
+    z-index: 999;
+    bottom: 19%;
+    left: 48.5%;
+}
+
+.icon-w3 i {
+    color: #fff;
+    font-size: 30px;
+    border: 2px solid #fff;
+    padding: 10px 6px;
+    border-radius: 20px;
+}
+
+/* //banner move icon */
+
+/* //banner style */
+
+/* about */
+.main-img {
+    position: relative;
+    
+}
+
+.about {
+    padding: 9em 0 12em;
+}
+
+.main-img img {
+    border: 11px solid #f5f5f5;
+    transform: rotate(-23deg);
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.08), 0 5px 8px 0 rgba(0, 0, 0, 0.12), 0 1px 14px 0 rgba(0, 0, 0, 0.06);
+}
+
+.pos-aboimg2 {
+    position: absolute;
+    bottom: -74%;
+    left: -6%;
+}
+
+/* about right */
+h3.tittle-w3layouts {
+    text-shadow: 2px 2px 2px rgba(41, 41, 41, 0.15);
+    font-size: 40px;
+    font-weight: 200;
+}
+
+h4.sub-tittle-w3layouts {
+    color: #FF5722;
+    font-size: 16px;
+}
+
+ul.author li {
+    color: #888;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+ul.author li span {
+    display: block;
+    color: #1d1e1f;
+    font-size: 21px;
+    font-weight: 600;
+}
+
