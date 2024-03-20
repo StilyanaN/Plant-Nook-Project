@@ -152,10 +152,6 @@ nav ul ul li a {
     font-size: 14px;
 }
 
-/* Second, Third and more Tiers	
- * We move the 2nd and 3rd etc tier dropdowns to the left
- * by the amount of the width of the first tier.
-*/
 nav ul ul ul li {
     position: relative;
     top: -60px;

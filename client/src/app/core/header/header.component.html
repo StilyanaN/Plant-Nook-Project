@@ -5,7 +5,7 @@
             <div class="header d-lg-flex justify-content-between align-items-center">
                 <!-- logo -->
                 <h1 class="logo text-center">
-                    <a href="index.html">Plant Nook<i class="fa fa-pagelines" aria-hidden="true"></i>
+                    <a routerLink="">Plant Nook<i class="fa fa-pagelines" aria-hidden="true"></i>
                     </a>
                 </h1>
                 <!-- //logo -->
@@ -15,22 +15,13 @@
                         <label for="drop" class="toggle toogle-2">Menu</label>
                         <input type="checkbox" id="drop" />
                         <ul class="menu">
-                            <li class="active ml-0"><a href="index.html">Home</a></li>
-                            <li><a href="#create">Create post</a></li>
-                            <li>
-                                <!-- First Tier Drop Down -->
-                                <label for="drop-2" class="toggle toggle-drop">Pages <span class="fa fa-angle-down" aria-hidden="true"></span>
-                                </label>
-                                <a href="#">Pages <span class="fa fa-angle-down" aria-hidden="true"></span></a>
-                                <input type="checkbox" id="drop-2" />
-                                <ul class="list-unstyled">
-                                    <li><a href="#plants" class="drop-text">Plants</a></li>
-                                    <li><a href="#accessories" class="drop-text">Accessories</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#profile">Profile</a></li>
-                            <li><a href="#login">Login</a></li>
-                            <li><a href="#register">Register</a></li>
+                            <li class="active ml-0"><a routerLink="">Home</a></li>
+                            <li><a routerLink="/about">About</a></li>
+                            <li><a routerLink="/posts">Posts</a></li>
+                            <li><a routerLink="/create">Create post</a></li>
+                            <li><a routerLink="/profile">Profile</a></li>
+                            <li><a routerLink="/login">Login</a></li>
+                            <li><a routerLink="/register">Register</a></li>
                             <li><a href="#logout">Logout</a></li>
                            
                         </ul>
