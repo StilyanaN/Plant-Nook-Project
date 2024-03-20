@@ -5,7 +5,7 @@
 }
 
 .banner-top {
-    background: url(/assets/images/2.jpg) no-repeat bottom;
+    background: url(/assets/images/ho.jpg) no-repeat bottom;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -29,8 +29,8 @@
 }
 
 .w3layouts-banner-info h3 {
-    font-size: 3.5em;
-    text-shadow: 3px 4px 6px rgba(45, 45, 45, 0.15);
+    font-size: 4em;
+    text-shadow: 3px 4px 6px rgb(19, 18, 18);
     font-weight: 600;
 }
 
@@ -85,54 +85,18 @@ a.button-style:hover {
     border-radius: 20px;
 }
 
+
+.text-li {
+    color: #f9fff9;
+    text-shadow: 3px 4px 6px rgb(10, 10, 10);
+    background-color: #91d8af02;
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+
 /* //banner move icon */
 
 /* //banner style */
-
-/* about */
-.main-img {
-    position: relative;
-    
-}
-
-.about {
-    padding: 9em 0 12em;
-}
-
-.main-img img {
-    border: 11px solid #f5f5f5;
-    transform: rotate(-23deg);
-    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.08), 0 5px 8px 0 rgba(0, 0, 0, 0.12), 0 1px 14px 0 rgba(0, 0, 0, 0.06);
-}
-
-.pos-aboimg2 {
-    position: absolute;
-    bottom: -74%;
-    left: -6%;
-}
-
-/* about right */
-h3.tittle-w3layouts {
-    text-shadow: 2px 2px 2px rgba(41, 41, 41, 0.15);
-    font-size: 40px;
-    font-weight: 200;
-}
-
-h4.sub-tittle-w3layouts {
-    color: #FF5722;
-    font-size: 16px;
-}
-
-ul.author li {
-    color: #888;
-    font-size: 15px;
-    letter-spacing: 1px;
-}
-
-ul.author li span {
-    display: block;
-    color: #1d1e1f;
-    font-size: 21px;
-    font-weight: 600;
-}
 
