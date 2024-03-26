@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const photoSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String,
-        required: [true, 'Name is required!'],
-        minLength: [2, 'Name should be at least 2 characters!']
+        required: [true, 'Title is required!'],
+        minLength: [2, 'Title should be at least 2 characters!']
     },
     image: {
         type: String,
@@ -23,29 +23,32 @@ const photoSchema = new mongoose.Schema({
         minLength: [5,'The length of discription it should be at least 5 characters!'],
         maxLength: [50,'The length of discription should not exceed 50 characters!'],
     },
-    location: {
+    category: {
         type: String,
-        required: [true, 'Location is required!'],
-        minLength: [5,'The length of location it should be at least 5 characters!'],
-        maxLength: [50,'The length of location should not exceed 50 characters!'],
+        required: [true, 'Category is required!'],
+        maxLength: [30,'The length of category should not exceed 30 characters!'],
     },
     owner: {
         type: mongoose.Types.ObjectId,
         ref: 'User',
     },
-    comments: [
-        {
-            user:{
-                type: mongoose.Types.ObjectId,
-                required: true,
-                ref: 'User',
-            } ,
-            message: {
-                type: String,
-                required: 'Comment message is required!'
-            },
-        }
-    ]
+    // comments: [
+    //     {
+    //         user:{
+    //             type: mongoose.Types.ObjectId,
+    //             required: true,
+    //             ref: 'User',
+    //         } ,
+    //         message: {
+    //             type: String,
+    //             required: 'Comment message is required!'
+    //         },
+    //     }
+    // ],
+    likes: {
+        type: Number,
+        default: 0
+    }
 });
 
 const Photo = mongoose.model('Photo', photoSchema);

@@ -6,6 +6,7 @@ const { getErrorMessage } = require('../utils/errorHelpers');
 
 const {isAuth} = require('../middlewares/authMiddleware');
 
+
 router.get('/photos', async (req, res) => {
     const photos = await photoManager.getAll();
     res.json(photos);
@@ -37,7 +38,7 @@ router.post('/details/:photoId/edit',isAuth, async (req, res) => {
     
 
     try {
-        await photoManager.update(photoId, photoData);
+        await photoManager.update(photoId, photo);
 
         res.status(200).send({ok: true});
     } catch (err) {
