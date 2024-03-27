@@ -1,29 +1,34 @@
 /* Footer styles */
+/* Footer styles */
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: -60px 0; /* Adjust the top and bottom padding */
   text-align: center;
-  background-color: #ffffff; /* Background color */
-  padding: 10px 0; /* Padding */
-
+  z-index: 999;
 }
+
 
 footer p {
-  margin-bottom: 10px; /* Bottom margin */
-}
-
-
-footer span {
-  font-weight: bold; /* Make the text bold */
-}
-
-logo2 {
-  position: relative;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  font-family: 'Niconne', cursive;
+  letter-spacing: 1px;
+  font-size: 15px;
 }
 
 .logo2 a {
-  font-size: 30px;
+  font-size: 20px;
   color: #FF5722;
   font-family: 'Niconne', cursive;
   letter-spacing: 1px;
 }
 
+
+logo2 {
+  position: relative;
+}
 
