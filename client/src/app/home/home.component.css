@@ -5,7 +5,7 @@
 }
 
 .banner-top {
-    background: url(/assets/images/ho.jpg) no-repeat bottom;
+    background: url(/assets/images/ho1.jpg) no-repeat bottom;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -88,6 +88,13 @@ a.button-style:hover {
 
 .text-li {
     color: #212529da;
+    text-shadow: 3px 4px 6px rgb(10, 10, 10);
+    background-color: #91d8af02;
+    font-weight: bold;
+    font-style: italic;
+}
+.text-li1 {
+    color: #f0f2f3;
     text-shadow: 3px 4px 6px rgb(10, 10, 10);
     background-color: #91d8af02;
     font-weight: bold;
