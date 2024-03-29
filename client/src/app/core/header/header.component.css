@@ -1,25 +1,22 @@
-/* //bottom-to-top */
-/* header */
-/* navigation */
 .nav_w3ls {
     width: 100%;
+    /* display: flex; */
+    justify-content:space-between;
 }
 
-/* CSS Document */
 .toggle-2,
 .toggle,
 [id^=drop] {
     display: none;
 }
 
-/* Giving a background-color to the nav container. */
 nav {
     margin: 0;
     padding: 0;
 }
 
 .header-style {
-    background: #fff;
+    
     padding: 25px 0;
     -webkit-transition: .5s all;
     -moz-transition: .5s all;
@@ -27,33 +24,13 @@ nav {
     z-index: 99;
     box-shadow: 3px 3px 30px 4px rgba(8, 8, 8, 0.07);
 }
-
-/* logo */
-h1.logo {
-    position: absolute;
-    left: 44%;
+.logo {
+    height: 3rem;
+    position:relative;
+    right: 50px; 
+    filter: drop-shadow(-0.2rem 0.2rem 0.2rem var(--color-primary));
 }
 
-.logo a {
-    font-size: 46px;
-    color: #00BFA5;
-    font-family: 'Niconne', cursive;
-    letter-spacing: 1px;
-}
-
-.logo i {
-    position: absolute;
-    font-size: 26px;
-    transform: rotate(-71deg);
-    bottom: 30px;
-    left: -9px;
-    color: #00BFA5;
-}
-
-/* //logo */
-
-/* Since we'll have the "ul li" "float:left"
- * we need to add a clear after the container. */
 
 nav:after {
     content: "";
@@ -61,45 +38,23 @@ nav:after {
     clear: both;
 }
 
-/* Positioning the navigation items inline */
 nav ul li {
-    margin: 0px;
     display: inline-block;
-    float: left;
-}
-
-/* Styling the links */
-nav a {
-    color: #573e2a;
-    font-size: 16px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 600;
-    text-align: center;
-    display: inline-block;
-    transition: 0.5s all;
-    -webkit-transition: 0.5s all;
-    -moz-transition: 0.5s all;
-    -o-transition: 0.5s all;
-    -ms-transition: 0.5s all;
+    margin: 0 20px;
+    
 }
 
 ul.menu li {
     width: 11%;
     text-align: center;
+    display:inline-block;
 }
 
-ul.menu li:nth-child(4) {
-    margin-right: 12%;
-}
 
 nav ul li ul li a:hover {
     background: #f8f9fa;
     color: #FF5722;
 }
-
-
-/* Background color change on Hover */
 
 .menu li.active a,
 .menu li a:hover {
@@ -109,10 +64,9 @@ nav ul li ul li a:hover {
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
+    cursor: pointer;
 }
 
-/* Hide Dropdowns by Default
- * and giving it a position of absolute */
 nav ul ul {
     display: none;
     top: 50px;
@@ -131,20 +85,6 @@ nav ul ul {
     border-radius: 0.25rem;
 }
 
-/* Display Dropdowns on Hover */
-nav ul li:hover>ul {
-    display: inherit;
-}
-
-/* Fisrt Tier Dropdown */
-nav ul ul li {
-    width: 170px !important;
-    float: none;
-    display: list-item;
-    position: relative;
-    margin: 0 !important;
-}
-
 nav ul ul li a {
     color: #000;
     padding: 5px 10px;
@@ -155,23 +95,9 @@ nav ul ul li a {
 nav ul ul ul li {
     position: relative;
     top: -60px;
-    /* has to be the same number as the "width" of "nav ul ul li" */
     left: 170px;
 }
 
-
-/* Change ' +' in order to change the Dropdown symbol */
-li>a:only-child:after {
-    content: '';
-}
-
-a.reqe-button {
-    border: 2px solid rgba(255, 255, 255, 0.35);
-    border-radius: 4px;
-}
-
-/* Media Queries
---------------------------------------------- */
 @media all and (max-width : 991px) {
     .header-style {
         padding: 10px 0;
@@ -190,14 +116,11 @@ a.reqe-button {
         float: right;
     }
 
-    /* Hide the navigation menu by default */
-    /* Also hide the  */
     .toggle+a,
     .menu {
         display: none;
     }
 
-    /* Stylinf the toggle lable */
     .toggle.toogle-2 {
         display: block;
         padding: 8px 14px;
@@ -286,7 +209,6 @@ a.reqe-button {
         margin-right: 0;
     }
 
-    /* Display Dropdown when clicked on Parent Lable */
     [id^=drop]:checked+ul {
         display: block;
         background: #fff;
@@ -295,7 +217,7 @@ a.reqe-button {
         width: 100%;
     }
 
-    /* Change menu item's width to 100% */
+    
     nav ul li {
         display: block;
         width: 100%;
@@ -324,27 +246,17 @@ a.reqe-button {
         font-size: 17px;
     }
 
-    /* 
-    nav ul li ul li .toggle,
-    nav ul ul a {
-        background-color: #212121;
-    } */
-
-    /* Hide Dropdowns by Default */
     nav ul ul {
         float: none;
         position: static;
         color: #ffffff;
-        /* has to be the same number as the "line-height" of "nav a" */
     }
 
-    /* Hide menus on hover */
     nav ul ul li:hover>ul,
     nav ul li:hover>ul {
         display: none;
     }
 
-    /* Fisrt Tier Dropdown */
     nav ul ul li {
         display: block;
         width: 100%;
@@ -353,8 +265,6 @@ a.reqe-button {
 
     nav ul ul ul li {
         position: static;
-        /* has to be the same number as the "width" of "nav ul ul li" */
-
     }
 
     .menu li.active a,
@@ -376,113 +286,3 @@ a.reqe-button {
         color: #000;
     }
 }
-
-/*-- dropdown --*/
-#demo {
-    margin: 10px 0 0px 0;
-    font-family: 'Lato', sans-serif;
-}
-
-#demo .wrapper {
-    display: inline-block;
-    position: relative;
-}
-
-#demo .parent {
-    height: 100%;
-    width: 100%;
-    display: block;
-    cursor: pointer;
-    line-height: 30px;
-    height: 30px;
-    color: #fff;
-    z-index: 2;
-    position: relative;
-    -webkit-transition: border-radius .1s linear, background .1s linear, z-index 0s linear;
-    -webkit-transition-delay: .8s;
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    color: #fff;
-    text-transform: capitalize;
-    font-weight: 500;
-    font-size: 15px;
-    letter-spacing: 1px;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-#demo .parent:hover,
-#demo .content:hover~.parent {
-    -webkit-transition-delay: 0s, 0s, 0s;
-}
-
-#demo .content:hover~.parent {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    z-index: 0;
-}
-
-#demo .content {
-    position: absolute;
-    top: 0;
-    display: block;
-    z-index: 1;
-    height: 0;
-    width: 150px;
-    padding-top: 30px;
-    -webkit-transition: height .5s ease;
-    -webkit-transition-delay: .4s;
-}
-
-#demo .wrapper:active .content {
-    height: 150px;
-    z-index: 3;
-    -webkit-transition-delay: 0s;
-}
-
-#demo .content:hover {
-    height: 150px;
-    z-index: 3;
-    -webkit-transition-delay: 0s;
-}
-
-
-#demo .content ul {
-    background: #fff;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    height: 100%;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-#demo .content ul a {
-    text-decoration: none;
-    padding: 0;
-}
-
-#demo .content li:hover {
-    background: #f8f9fa;
-}
-
-#demo .content li {
-    list-style: none;
-    text-align: left;
-    color: #999;
-    font-size: 16px;
-    line-height: 30px;
-    height: 40px;
-    line-height: 40px;
-    padding-left: 10px;
-    border-top: 1px solid #eee;
-}
-
-#demo .content li:last-of-type {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-/* //dropdown */
-/* //navigation */
-/* //header */
