@@ -1,0 +1,52 @@
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Including Bootstrap Icons in HTML</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+<body>
+   <!-- design -->
+<div>
+  <div *ngIf="isLoading">
+    <app-loader />
+  </div>
+<div  class="page">
+  <div *ngIf="!isLoading && hasPosts" class="design" id="design">
+    <div class="container">
+      <div *ngIf="!isLoading" class="title">
+        <h2>All posts</h2>
+      </div>
+      <div *ngIf="!isLoading" class="design-content">
+        <div *ngFor="let photo of photos" class="design-item">
+          <div class="design-img">
+            <img src="assets/images/12.jpg" alt="image" />
+            <span *ngIf="isLoggedIn"><i class="bi-heart"></i> 22</span>
+            
+            <span>Art & Design</span>
+          </div>
+          <button class="button-details" [routerLink]="['/photos/', photo.photoId]">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="no-posts-container" *ngIf="!hasPosts && !isLoading">
+  <div class="home">
+    <div class="header">
+      <div class="class-title">
+        <h2 class="title">No posts yet.</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- end of design -->
+</div>
+
+</body>
+</html>
