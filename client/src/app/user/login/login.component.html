@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <div class="wrapper">
+      <form [formGroup]="formLogin" (ngSubmit)="login()">
+        <h1>Login</h1>
+        <div class="input-box">
+          <i class="fa fa-envelope icon"></i>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            autocomplete="email"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <i class="bx bxs-user"></i>
+        </div>
+
+        <ng-container *ngIf="formLogin.get('email')?.touched">
+          <p class="error" *ngIf="formLogin.get('email')?.errors?.['required']">
+            Email is required!
+          </p>
+          <p class="error" *ngIf="formLogin.get('email')?.errors?.['emailValidator']">
+            Email is not valid!
+          </p>
+        </ng-container>
+
+        <div class="input-box">
+          <i class="fa fa-key icon"></i>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+
+        <ng-container *ngIf="formLogin.get('password')?.touched">
+          <p
+            class="error"
+            *ngIf="formLogin.get('password')?.errors?.['required']"
+          >
+            Password is required!
+          </p>
+          <p
+            class="error"
+            *ngIf="formLogin.get('password')?.errors?.['minlength']"
+          >
+          'Password should be at least 5 characters!'
+          </p>
+        </ng-container>
+
+        <div class="remember-forgot">
+          <label><input type="checkbox" />Remember Me</label>
+        </div>
+        <button class="btn" [disabled]="formLogin.invalid" 
+        [style]="{ backgroundColor: formLogin.invalid ? 'grey' : 'blue' }"> Login</button>
+        <div class="register-link">
+          <p>Don't have an account? <a routerLink="/users/register">Register</a></p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
