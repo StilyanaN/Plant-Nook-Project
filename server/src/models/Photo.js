@@ -45,10 +45,15 @@ const photoSchema = new mongoose.Schema({
     //         },
     //     }
     // ],
-    likes: {
-        type: Number,
-        default: 0
-    }
+    likes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    isLiked: {
+        type: Boolean,
+        default: false,
+     },
+    
 });
 
 const Photo = mongoose.model('Photo', photoSchema);
