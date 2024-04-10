@@ -1,19 +1,20 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 
-const photoSchema = new mongoose.Schema({
+const postSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, 'Title is required!'],
         minLength: [2, 'Title should be at least 2 characters!']
     },
     image: {
-        type: String,
-        required: [true, 'ImageUrl is required!'],
-        validate: {
+            type: String,
+            required: [true, 'Image is required'],
+           validate: {
             validator(value) {
                 return /^https?:\/\//.test(value)
             },
-            message:(props) => `This is invalid url for the image!`
+            message: (props) => `This is invalid url for the image!`
         }
     },
     
@@ -26,36 +27,23 @@ const photoSchema = new mongoose.Schema({
     category: {
         type: String,
         required: [true, 'Category is required!'],
+        minLength: [3,'The length of category it should be at least 3 characters!'],
         maxLength: [30,'The length of category should not exceed 30 characters!'],
     },
-    owner: {
-        type: mongoose.Types.ObjectId,
-        ref: 'User',
-    },
-    // comments: [
-    //     {
-    //         user:{
-    //             type: mongoose.Types.ObjectId,
-    //             required: true,
-    //             ref: 'User',
-    //         } ,
-    //         message: {
-    //             type: String,
-    //             required: 'Comment message is required!'
-    //         },
-    //     }
-    // ],
+   
     likes: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: "User"
     }],
-    isLiked: {
-        type: Boolean,
-        default: false,
-     },
+    likesCount: {
+        type: Number,
+        default: 0
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
     
-});
+}, { timestamps: { createdAt: 'created_at' } });
 
-const Photo = mongoose.model('Photo', photoSchema);
-
-module.exports = Photo;
+module.exports = mongoose.model('Post', postSchema);
