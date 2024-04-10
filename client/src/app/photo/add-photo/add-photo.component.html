@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <div class="wrapper">
+      <form [formGroup]="formCreate" (ngSubmit)="createPhoto()">
+        <h1>Create post</h1>
+        <div class="input-box">
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Title"
+            formControlName="title"
+          />
+          <i class="bx bxs-user"></i>
+        </div>
+
+        <ng-container *ngIf="formCreate.get('title')?.touched">
+          <p
+            class="error"
+            *ngIf="formCreate.get('title')?.errors?.['required']"
+          >
+            Title is required!
+          </p>
+          <p
+            class="error-pass"
+            *ngIf="formCreate.get('title')?.errors?.['minlength']"
+          >
+            Title must be at least 2 characters!
+          </p>
+        </ng-container>
+
+        <div class="input-box">
+          <input
+            type="text"
+            name="category"
+            id="category"
+            placeholder="Category"
+            formControlName="category"
+          />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <ng-container *ngIf="formCreate.get('category')?.touched">
+          <p
+            class="error"
+            *ngIf="formCreate.get('category')?.errors?.['required']"
+          >
+            Category is required!
+          </p>
+          <p
+            class="error-pass"
+            *ngIf="formCreate.get('category')?.errors?.['minlength']"
+          >
+            Category must be at least 3 characters!
+          </p>
+          <p
+            class="error-pass"
+            *ngIf="formCreate.get('category')?.errors?.['maxlength']"
+          >
+            Category must not exceed 30 characters!
+          </p>
+        </ng-container>
+
+        <div class="input-box">
+          <input
+            name="imageUrl"
+            id="image"
+            placeholder="Image"
+            formControlName="image"
+          />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <ng-container *ngIf="formCreate.get('image')?.touched">
+          <p
+            class="error"
+            *ngIf="formCreate.get('image')?.errors?.['required']"
+          >
+            Image is required!
+          </p>
+          <p
+            class="error-pass"
+            *ngIf="formCreate.get('image')?.errors?.['pattern']"
+          >
+            The URL must start with 'https://' or 'http://'
+          </p>
+        </ng-container>
+
+        <div class="input-box">
+          <textarea
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Description"
+            formControlName="description"
+          ></textarea>
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+
+        <ng-container *ngIf="formCreate.get('description')?.touched">
+          <p
+            class="error-pass"
+            *ngIf="formCreate.get('description')?.errors?.['required']"
+          >
+            Description is required!
+          </p>
+          <p
+            class="error-pass"
+            *ngIf="formCreate.get('description')?.errors?.['minlength']"
+          >
+            Description must be at least 5 characters!
+          </p>
+          <p
+            class="error-pass"
+            *ngIf="formCreate.get('description')?.errors?.['maxlength']"
+          >
+            Description must not exceed 50 characters!
+          </p>
+        </ng-container>
+        <button
+          class="btn"
+          type="submit"
+          [disabled]="formCreate.invalid"
+          [style]="{
+            backgroundColor: formCreate.invalid ? 'grey' : '#266d20b2'
+          }"
+        >
+          Create
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<!-- class="btn"
+(click)="
+  addPhoto(
+    inputTitle.value,
+    inputCategory.value,
+    inputImage.value,
+    inputDescription.value
+  )
+" -->
