@@ -1,19 +1,27 @@
+import { Photo } from "./photo";
+
 export interface User {
     username: string;
     email: string;
     password: string;
-    photos: string[];
-    _id: string;
+    photos: Photo[];
+    _id?: string;
+    created_at: string;
+    updatedAt: string;
+    __v: number;
 }
 
 export interface UserForLogin {
     email: string,
     password: string,
-    error?: string
 }
 export interface UserForAuth {
-    email?: string,
-    userId?: string,
-    username?: string,
-    error?: string
-}
+    username: string;
+    email: string;
+    password: string;
+    id: string;
+  }
+  export interface ProfileDetails {
+    username: string;
+    email: string;
+  }
