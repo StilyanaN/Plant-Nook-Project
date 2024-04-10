@@ -1,66 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> </head>
+  <head>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
   <body>
     <div class="wrapper">
-      <form [formGroup]="formLogin" (ngSubmit)="login()">
+      <form class="login" #form="ngForm" (ngSubmit)="login(form)">
         <h1>Login</h1>
         <div class="input-box">
-          <i class="fa fa-envelope icon"></i>
+          <i class="bx bx-envelope"></i>
           <input
             type="email"
             name="email"
             id="email"
             autocomplete="email"
             placeholder="Email"
-            formControlName="email"
+            ngModel
+            #inputEmail="ngModel"
+            required
+            [appEmail]="domains"
           />
-          <i class="bx bxs-user"></i>
         </div>
 
-        <ng-container *ngIf="formLogin.get('email')?.touched">
-          <p class="error" *ngIf="formLogin.get('email')?.errors?.['required']">
+        <ng-container *ngIf="inputEmail.touched">
+          <p class="error" *ngIf="inputEmail.errors?.['required']">
             Email is required!
           </p>
-          <p class="error" *ngIf="formLogin.get('email')?.errors?.['emailValidator']">
+          <p class="error" *ngIf="inputEmail.errors?.['emailValidator']">
             Email is not valid!
           </p>
         </ng-container>
 
         <div class="input-box">
-          <i class="fa fa-key icon"></i>
+          <i class="bx bxs-lock-alt"></i>
           <input
             type="password"
             name="password"
             id="password"
             placeholder="Password"
-            formControlName="password"
+            ngModel
+            #inputPassword="ngModel"
+            required
+            minlength="5"
           />
-          <i class="bx bxs-lock-alt"></i>
         </div>
 
-        <ng-container *ngIf="formLogin.get('password')?.touched">
-          <p
-            class="error"
-            *ngIf="formLogin.get('password')?.errors?.['required']"
-          >
+        <ng-container *ngIf="inputPassword.touched">
+          <p class="error" *ngIf="inputPassword.errors?.['required']">
             Password is required!
           </p>
-          <p
-            class="error"
-            *ngIf="formLogin.get('password')?.errors?.['minlength']"
-          >
-          'Password should be at least 5 characters!'
+          <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+            'Password should be at least 5 characters!'
           </p>
         </ng-container>
 
         <div class="remember-forgot">
           <label><input type="checkbox" />Remember Me</label>
         </div>
-        <button class="btn" [disabled]="formLogin.invalid" 
-        [style]="{ backgroundColor: formLogin.invalid ? 'grey' : 'blue' }"> Login</button>
+        <button
+          class="btn"
+          [disabled]="form.invalid"
+          [style]="{ backgroundColor: form.invalid ? 'grey' : '#266d20b2' }"
+        >
+          Login
+        </button>
         <div class="register-link">
-          <p>Don't have an account? <a routerLink="/users/register">Register</a></p>
+          <p>
+            Don't have an account? <a routerLink="/users/register">Register</a>
+          </p>
         </div>
       </form>
     </div>
