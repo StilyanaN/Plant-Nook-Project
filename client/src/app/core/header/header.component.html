@@ -11,19 +11,18 @@
             <ul class="menu">
               <li class="active ml-0"><a routerLink="/home">Home</a></li>
               <li><a routerLink="/about">About</a></li>
-              <li><a routerLink="/photos">Posts</a></li>
+              <li><a routerLink="/posts">Posts</a></li>
+
               <ng-container *ngIf="isLoggedIn">
                 <li><a routerLink="/create">Create post</a></li>
                 <li><a routerLink="/profile">{{username}}'s Profile</a></li>
                 <li (click)="logout()" ><a>Logout</a></li>
               </ng-container>
+
               <ng-container *ngIf="!isLoggedIn">
                 <li><a routerLink="/login">Login</a></li>
                 <li><a routerLink="/register">Register</a></li>
               </ng-container>
-              <!-- <ng-container *ngIf="isLoggedIn">
-                <li (click)="logout()" ><a>Logout</a></li>
-              </ng-container> -->
             </ul>
           </nav>
         </div>
