@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { EmailDirective } from './validators/email.directive';
 
-
-
-
 @NgModule({
   declarations: [
     LoaderComponent ,
