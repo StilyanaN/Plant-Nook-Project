@@ -24,12 +24,19 @@
       <div *ngIf="!isLoading" class="design-content">
         <div *ngFor="let photo of photos" class="design-item">
           <div class="design-img">
-            <img src="assets/images/12.jpg" alt="image" />
-            <span *ngIf="isLoggedIn"><i class="bi-heart"></i> 22</span>
-            
-            <span>Art & Design</span>
+            <img src="{{photo.image}}" alt="image" />
+            <span *ngIf="isLoggedIn" >
+              <ng-container *ngIf="getTotalLikes(photo) !== 0; else noLikes">
+                <i class="bi-heart-fill"></i> {{ getTotalLikes(photo) }}
+              </ng-container>
+              <ng-template #noLikes>
+                <i class="bi-heart"></i> {{ getTotalLikes(photo) }}
+              </ng-template>
+            </span>
+            <span>{{photo.title}}</span>
           </div>
-          <button class="button-details" [routerLink]="['/photos/', photo.photoId]">Details</button>
+          <button class="button-details" [routerLink]="['/posts', photo._id]">Details</button>
+
         </div>
       </div>
     </div>
