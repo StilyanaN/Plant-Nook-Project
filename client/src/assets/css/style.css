@@ -1,10 +1,4 @@
-/*--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
-/* Reset Code */
+
 body {
     padding: 0;
     margin: 0;
@@ -280,14 +274,10 @@ nav ul ul li a {
     font-size: 14px;
 }
 
-/* Second, Third and more Tiers	
- * We move the 2nd and 3rd etc tier dropdowns to the left
- * by the amount of the width of the first tier.
-*/
+
 nav ul ul ul li {
     position: relative;
     top: -60px;
-    /* has to be the same number as the "width" of "nav ul ul li" */
     left: 170px;
 }
 
@@ -456,27 +446,18 @@ a.reqe-button {
         font-size: 17px;
     }
 
-    /* 
-    nav ul li ul li .toggle,
-    nav ul ul a {
-        background-color: #212121;
-    } */
-
-    /* Hide Dropdowns by Default */
     nav ul ul {
         float: none;
         position: static;
         color: #ffffff;
-        /* has to be the same number as the "line-height" of "nav a" */
+        
     }
-
-    /* Hide menus on hover */
     nav ul ul li:hover>ul,
     nav ul li:hover>ul {
         display: none;
     }
 
-    /* Fisrt Tier Dropdown */
+    
     nav ul ul li {
         display: block;
         width: 100%;
@@ -530,8 +511,6 @@ a.reqe-button {
     color: #fff;
     z-index: 2;
     position: relative;
-    -webkit-transition: border-radius .1s linear, background .1s linear, z-index 0s linear;
-    -webkit-transition-delay: .8s;
     text-align: center;
     font-family: 'Lato', sans-serif;
     color: #fff;
@@ -544,9 +523,7 @@ a.reqe-button {
 }
 
 #demo .parent:hover,
-#demo .content:hover~.parent {
-    -webkit-transition-delay: 0s, 0s, 0s;
-}
+
 
 #demo .content:hover~.parent {
     border-bottom-left-radius: 0;
@@ -562,20 +539,19 @@ a.reqe-button {
     height: 0;
     width: 150px;
     padding-top: 30px;
-    -webkit-transition: height .5s ease;
-    -webkit-transition-delay: .4s;
+   
 }
 
 #demo .wrapper:active .content {
     height: 150px;
     z-index: 3;
-    -webkit-transition-delay: 0s;
+   
 }
 
 #demo .content:hover {
     height: 150px;
     z-index: 3;
-    -webkit-transition-delay: 0s;
+    
 }
 
 
@@ -773,41 +749,6 @@ ul.author li span {
     font-weight: 600;
 }
 
-/* //about right */
-/* //about */
-
-/* services */
-.serives-agile {
-    background: #00BFA5;
-}
-
-.services-w3ls-grid h4 {
-    letter-spacing: 1px;
-    font-weight: 600;
-}
-
-.services-w3ls-grid p {
-    color: #fdfdfd;
-    font-weight: 300;
-}
-
-.services-w3ls-grid i {
-    color: #fff;
-    font-size: 32px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    width: 90px;
-    height: 90px;
-    line-height: 2.6;
-}
-
-/* //services */
-
-/* blog */
-ul.timeline {
-    list-style-type: none;
-    position: relative;
-}
 
 ul.timeline:before {
     content: ' ';
@@ -851,38 +792,6 @@ a.float-right {
     color: #080808;
 }
 
-/* //blog */
-
-/* contact */
-.contact {
-    background: url(../images/bg.jpg) no-repeat center;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-}
-
-button.btn.btn-block {
-    text-transform: uppercase;
-    font-size: 18px;
-    letter-spacing: 1px;
-    background: #00BFA5;
-    border: none;
-    color: #fff;
-    font-weight: 600;
-    padding: 10px;
-    border-radius: 0px;
-    margin-top: 2rem;
-}
-
-.contact-top1 .form-group label {
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    margin-bottom: .5rem;
-    letter-spacing: 1px;
-}
 
 form.f-color .form-control {
     color: #000;
@@ -892,39 +801,6 @@ form.f-color .form-control {
     border: none;
     border-radius: 0px;
 }
-
-legend {
-    max-width: 50%;
-    background: transparent;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 27px;
-    font-family: 'Niconne', cursive;
-}
-
-fieldset.contact-top1 {
-    padding: 3rem;
-    border: 1px solid #fff;
-}
-
-/* contact address */
-.address {
-    padding: 3.5em;
-    margin-top: 4em;
-}
-
-.address-right p,
-.address-right p a {
-    color: #000;
-}
-
-.address-grid i {
-    font-size: 40px;
-    color: #FF5722;
-}
-
-/* //contact address */
-/* //contact */
 
 /* gallery */
 .gallery-demo {
@@ -1086,27 +962,6 @@ ol.carousel-indicators {
 
 /* //testimonials */
 
-/* partners */
-.parts-w3pvt i {
-    font-size: 70px;
-    color: #d6d6d6;
-    transition: 0.5s all;
-    -webkit-transition: 0.5s all;
-    -moz-transition: 0.5s all;
-    -ms-transition: 0.5s all;
-    -o-transition: 0.5s all;
-}
-
-.parts-w3pvt i:hover {
-    color: #FF5722;
-    transition: 0.5s all;
-    -webkit-transition: 0.5s all;
-    -moz-transition: 0.5s all;
-    -ms-transition: 0.5s all;
-    -o-transition: 0.5s all;
-}
-
-/* //partners */
 
 /* stats */
 .stats-info {
@@ -1143,53 +998,4 @@ h4.stat-text-wthree {
 }
 
 /* //stats */
-
-/* team */
-.caption {
-    text-align: center;
-}
-
-.team-text h4 {
-    font-size: 26px;
-    color: #000;
-    letter-spacing: 1px;
-    margin: 1.2em 0 .8em;
-    font-weight: 600;
-}
-
-.caption ul li {
-    display: inline-block;
-}
-
-.caption ul li:nth-child(2) {
-    margin: 0 .3em;
-}
-
-.caption ul li a i {
-    color: #fff;
-    width: 35px;
-    height: 35px;
-    font-size: 16px;
-    line-height: 2.2;
-}
-
-.caption ul li a i:hover {
-    transform: rotateY(360deg);
-    transition: .5s all;
-}
-
-.caption ul li a i.f1 {
-    background: #3b5998;
-}
-
-.caption ul li a i.f2 {
-    background: #00aced;
-}
-
-.caption ul li a i.f3 {
-    background: #F44336;
-}
-
-/* //team */
-
 
