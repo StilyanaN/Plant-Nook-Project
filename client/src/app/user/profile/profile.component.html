@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Profile Page</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="header__wrapper">
+      <header></header>
+      <div class="cols__container">
+        <div class="left__col">
+          <div class="img__container">
+            <img src="/assets/images/profile-pic.jpg" alt="Anna Smith" />
+            <span></span>
+          </div>
+          <h2>{{ user.username }}</h2>
+          <p>{{ user.email }}</p>
+
+          <ul class="about">
+            <li><span>{{ photoCount }}</span>Posts</li>
+          </ul>
+
+          <div class="content">
+            <p>
+              <!-- To do -->
+            </p>
+
+            <ul>
+              <li><i class="fab fa-twitter"></i></li>
+              <i class="fab fa-pinterest"></i>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-dribbble"></i>
+            </ul>
+          </div>
+        </div>
+        <div class="right__col">
+          <nav>
+            <ul>
+              <li><a>photos</a></li>
+            </ul>
+          </nav>
+          <div class="photos">
+            <ng-container *ngIf="userPhotos.length === 0; else postsExist">
+              <div>
+                <h1>No posts yet...</h1>
+                <p routerLink="/create" class="share-post-link">
+                  Why not share your first post?
+                </p>
+              </div>
+            </ng-container>
+            <ng-template #postsExist>
+              <div *ngFor="let photo of userPhotos" class="photo">
+                <img
+                  src="{{ photo.image }}"
+                  alt="Photo"
+                  routerLink="/posts/{{ photo._id }}"
+                />
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
