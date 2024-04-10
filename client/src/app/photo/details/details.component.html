@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Head content goes here -->
+  </head>
+  <body>
+    <div id="details-wrapper" *ngIf="photo">
+      <img id="details-img" [src]="photo.image" alt="{{ photo.title }}" />
+      <p id="title">{{ photo.title }}</p>
+      <p id="category">
+        Category: <span id="categories">{{ photo.category }}</span>
+      </p>
+      <div id="info-wrapper">
+        <div id="description">
+          <h4>Likes: <span>{{ photo.likes?.length || 0 }}</span></h4>
+          <span>{{ photo.description }}</span>
+        </div>
+      </div>
+
+      <div id="action-buttons" *ngIf="loggedIn">
+        <ng-container *ngIf="isOwner">
+          <a id="edit-btn" [routerLink]="['/posts', photo._id, 'edit']">Edit</a>
+          <a id="delete-btn" (click)="deletePhoto(photo._id)">Delete</a>
+        </ng-container>
+        <ng-container *ngIf="!isOwner">
+            <div class="details__header--chips-cta">
+              <a id="like-btn" (click)="addLike()">
+                <span *ngIf="isLiked">Unlike</span>
+                <span *ngIf="!isLiked">Like</span>
+              </a>
+            </div>
+          </ng-container>
+      </div>
+    </div>
+  </body>
+</html>
