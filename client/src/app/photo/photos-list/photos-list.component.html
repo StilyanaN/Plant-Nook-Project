@@ -35,7 +35,9 @@
             </span>
             <span>{{photo.title}}</span>
           </div>
+          <div id="action-buttons" *ngIf="isLoggedIn"> 
           <button class="button-details" [routerLink]="['/posts', photo._id]">Details</button>
+        </div>
 
         </div>
       </div>
