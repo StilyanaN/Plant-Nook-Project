@@ -13,9 +13,9 @@ const removePassword = (data) => {
 }
 
 function register(req, res, next) {
-    const {  email, username, password, repeatPassword } = req.body;
+    const {  email, username,gender, password, repeatPassword } = req.body;
 
-    return userModel.create({ email, username, password })
+    return userModel.create({ email, username,gender, password })
         .then((createdUser) => {
             createdUser = bsonToJson(createdUser);
             createdUser = removePassword(createdUser);
@@ -84,26 +84,26 @@ function logout(req, res) {
         .catch(err => res.send(err));
 }
 
-function getProfile(req, res, next) {
-    const token = req.cookies[authCookieName]; 
-    if (!token) {
-        return res.status(401).send({ message: 'Token is missing' });
-    }
+// function getProfile(req, res, next) {
+//     const token = req.cookies[authCookieName]; 
+//     if (!token) {
+//         return res.status(401).send({ message: 'Token is missing' });
+//     }
 
-    utils.jwt.verifyToken(token)
-        .then(data => {
-            req.user = data;
-            req.isLogged = true;
-            next();
-        })
-        .catch(err => {
-            if (['token expired', 'blacklisted token', 'jwt must be provided'].includes(err.message)) {
-                console.error(err);
-                return res.status(401).send({ message: 'Invalid token!' });
-            }
-            next(err);
-        });
-};
+//     utils.jwt.verifyToken(token)
+//         .then(data => {
+//             req.user = data;
+//             req.isLogged = true;
+//             next();
+//         })
+//         .catch(err => {
+//             if (['token expired', 'blacklisted token', 'jwt must be provided'].includes(err.message)) {
+//                 console.error(err);
+//                 return res.status(401).send({ message: 'Invalid token!' });
+//             }
+//             next(err);
+//         });
+// };
 
 
 function getProfileInfo(req, res, next) {
@@ -117,6 +117,13 @@ function getProfileInfo(req, res, next) {
       })
       .catch(next);
   }
+  function getProfile(req, res, next) {
+    const { _id: userId } = req.user;
+
+    userModel.findOne({ _id: userId }, { password: 0, __v: 0 }) //finding by Id and returning without password and __v
+        .then(user => { res.status(200).json(user) })
+        .catch(next);
+}
 
 function editProfileInfo(req, res, next) {
     const { _id: userId } = req.user;

@@ -22,6 +22,16 @@ const userSchema = new mongoose.Schema({
             message: props => `${props.value} must contains only latin letters and digits!`
         },
     },
+    gender: {
+        type:String,
+        required: true,
+        validate: {
+            validator: function (v) {
+                return v === 'male' || v === 'female';
+            },
+            message: props => `${props.value} is not a valid gender! Must be 'male' or 'female'.`
+        }
+    },
     password: {
         type: String,
         required: true,

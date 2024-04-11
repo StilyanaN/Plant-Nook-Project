@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Validators,FormBuilder } from '@angular/forms';
+import { Validators,FormBuilder, AbstractControl } from '@angular/forms';
 import { EMAIL_DOMAINS } from 'src/app/shared/constants';
 import { emailValidator } from 'src/app/shared/utils/email-validator';
 import { matchPassValidator } from 'src/app/shared/utils/match-pass-validator';
@@ -16,6 +16,7 @@ export class RegisterComponent {
   formRegister = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, emailValidator(EMAIL_DOMAINS)]],
+    gender: ['', [Validators.required, this.genderValidator()]],
     passGroup: this.fb.group(
       {
         password: ['', [Validators.required, Validators.minLength(5)]],
@@ -45,14 +46,25 @@ export class RegisterComponent {
     const {
       username,
       email,
+      gender,
       passGroup: { password, rePassword } = {},
     } = this.formRegister.value;
 
     this.userService
-      .register(username!, email!, password!, rePassword!)
+      .register(username!, email!,gender!, password!, rePassword!)
       .subscribe(() => {
         this.router.navigate(['/posts']);
       });
+  }
+
+  genderValidator() {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const gender = control.value;
+      if (gender !== 'male' && gender !== 'female') {
+        return { invalidGender: true };
+      }
+      return null;
+    };
   }
 }
   

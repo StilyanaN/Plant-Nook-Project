@@ -3,6 +3,7 @@ import { Photo } from "./photo";
 export interface User {
     username: string;
     email: string;
+    gender:string,
     password: string;
     photos: Photo[];
     _id?: string;
@@ -24,4 +25,5 @@ export interface UserForAuth {
   export interface ProfileDetails {
     username: string;
     email: string;
+    gender:string;
   }
