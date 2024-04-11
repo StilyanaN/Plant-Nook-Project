@@ -24,11 +24,13 @@ export class ProfileComponent implements OnInit {
   profileDetails: ProfileDetails = {
     username: '',
     email: '',
+    gender:'',
   };
 
   editUser = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(5)]],
     email: ['', [Validators.required, emailValidator(EMAIL_DOMAINS)]],
+  
   });
 
   constructor(
@@ -42,20 +44,24 @@ export class ProfileComponent implements OnInit {
     if (this.currentUserId) {
       this.userService.getProfileId(this.currentUserId).subscribe((user) => {
         this.user = user;
-        const { email, username } = this.user;
+        const { email, username, gender } = this.user; // Add gender here
         this.editUser.setValue({ username, email });
-
+  
+        // Set the gender property of profileDetails
+        this.profileDetails.gender = gender;
+  
         this.apiService.getPhotos().subscribe((photos: Photo[]) => {
           this.photos = photos;
-
+  
           this.userPhotos = this.photos.filter(photo => photo.userId && photo.userId._id === this.currentUserId);
-
+  
           this.totalLikes = this.calculateTotalLikes();
           this.photoCount = this.userPhotos.length; 
         });
       });
     }
   }
+  
 
   get currentUser(): string | undefined {
     return this.userService.currentUsername;
@@ -74,4 +80,17 @@ export class ProfileComponent implements OnInit {
     });
     return total;
   }
+
+  getProfilePicture(): string {
+    
+    if (this.profileDetails.gender === 'male') {
+      return '/assets/images/profile-pic-male.jpg';
+    } else if (this.profileDetails.gender === 'female') {
+      return '/assets/images/profile-pic.jpg';
+    } else {
+      return '/assets/images/unknown.jpg';
+    }
+   
+  }
+  
 }

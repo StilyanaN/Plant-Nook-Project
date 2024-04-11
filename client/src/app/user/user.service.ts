@@ -53,6 +53,7 @@ export class UserService implements OnDestroy {
   register(
     username: string,
     email: string,
+    gender:string,
     password: string,
     rePassword: string
   ) {
@@ -63,6 +64,7 @@ export class UserService implements OnDestroy {
         {
           username,
           email,
+          gender,
           password,
           rePassword,
         },
@@ -85,8 +87,13 @@ export class UserService implements OnDestroy {
   getProfile() {
     const { apiUrl } = environment;
     return this.http
-      .get<User>(`${apiUrl}/users/profile`,{ withCredentials: true })
-      .pipe(tap((user) => this.user$$.next(user)));
+    .get<User>(`${apiUrl}/users/profile`,{ withCredentials: true }).pipe(tap(user => {
+      if (user) {
+        this.user$$.next(user);
+      } else {
+        this.user$$.next(undefined);
+      }
+    }));
   }
   getProfileId(userId: string) {
     const { apiUrl } = environment;
