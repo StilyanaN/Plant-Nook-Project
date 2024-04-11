@@ -17,7 +17,7 @@ const routes: Routes = [
           { path: '', pathMatch: 'full', component: DetailsComponent },
           {
             path: 'edit',component: EditComponent,
-  
+            canActivate: [AuthActivate],
           },
         ],
       },

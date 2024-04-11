@@ -113,6 +113,10 @@ export class UserService implements OnDestroy {
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
+  IsAuthenticated(){
+    return this.isLogged;
+  }
+
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();
   }

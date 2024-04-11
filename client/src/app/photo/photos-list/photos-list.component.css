@@ -61,6 +61,10 @@ img{
 }
 .design-img{
   position: relative;
+  transition: all 0.5s ease;
+  width: 100%; /* Set width to fill container */
+  height: 100%; /* Set height to fill container */
+  object-fit: cover; /* Maintain aspect ratio and crop if necessary */
 }
 .design-img::after{
   position: absolute;
@@ -72,7 +76,11 @@ img{
   /* background: rgba(0, 0, 0, 0.3); */
 }
 .design-img img{
-  transition:  all 0.5s ease;
+  
+  transition: all 0.5s ease;
+  width: 100%; /* Set width to fill container */
+  height: 100%; /* Set height to fill container */
+  object-fit: cover; /* Maintain aspect ratio and crop if necessary */
 }
 
 .design-item:hover img{
